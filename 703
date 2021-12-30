@@ -1,0 +1,24 @@
+class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.k = k     //把需要输出的k 作为自己的一种属性
+        self.que = nums  //这里把self.que 作为要输出的nums
+        heapq.heapify(self.que)  //因为输出的时候是一个list的状态所以得用这个python自己内置的方法使得输出的时候是一个list的状态
+        
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self.que, val) //把val加入当前的list
+        while(len(self.que) > self.k): //如果list的长度大于目前的k值就把这个3个值中最小的给删除掉
+            heapq.heappop(self.que)
+        
+        return self.que[0] //heap[0]必定为最小值
+   
+   
+   
+   
+   
+   总结:
+   1.heap这种结构还能解决什么类型的问题?
+   
+   2. 第k大/第k小的值用heap这种结构因为 小堆和大堆本身 从小到大 和 从大到小的性质
+        
