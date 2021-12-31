@@ -1,0 +1,19 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+            
+        count = collections.Counter(nums)
+        
+        result = []
+        
+        for element in count.most_common(k):
+            list(element)
+            result.append(element[0])
+        
+        return result
+            
+        
+  
+  总结:
+  1.这道题可以用heap的方式来解决
+  
+  2.这里用到了counter里面的内置函数(要多熟悉一下counter里面的内置函数)
